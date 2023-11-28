@@ -85,6 +85,27 @@ This is a Perl script that will convert printer, print, and filament profile set
     ```
     git clone https://github.com/theophile/SuperSlicer_to_Orca_scripts.git
     ```
+## Contributing
+
+Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## Podman/Docker
+
+You can also use  Podman or Docker to run the script:
+
+1. Build the image:
+
+    ```sh
+	podman build --net=host . -t superslicer_to_orca
+	```
+
+2. Run the container against your config directory for interactive mode
+
+    ```sh
+	podman run -it --net=host -v ~/.config:/root/.config superslicer_to_orca
+	```
+
+You can pass parameters to the script as described below, but the `--input` or `--output` options must be based on your volume mount(s).
 
 ## Usage
 
@@ -140,10 +161,6 @@ The script accepts the following command-line options:
 - `--force-output`: Forces the script to output the converted JSON files to the output directory specified with `--outdir`. Use this option if you do not want the new files to be placed in your OrcaSlicer settings folder. (Optional)
 - `-h`, `--help`: Displays usage information.
 
-
-## Contributing
-
-Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
 ## License
 
